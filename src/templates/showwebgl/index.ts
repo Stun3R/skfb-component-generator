@@ -1,6 +1,13 @@
 import { TemplateType } from "../../utils/types";
 
 import * as indexTemplate from "./index.template";
-import * as indexModuleTemplate from "./index.module.template";
+import * as componentModuleTemplate from "./component.module.template";
+import * as componentTemplate from "./component.template";
+import * as typesTemplate from "./types.template";
 
-export const templates: TemplateType[] = [indexModuleTemplate, indexTemplate];
+export const templates: TemplateType[] = [
+  indexTemplate,
+  typesTemplate,
+  componentModuleTemplate,
+  componentTemplate,
+];

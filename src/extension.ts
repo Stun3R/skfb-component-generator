@@ -51,28 +51,13 @@ export const generate = async ({ fsPath }: Uri) => {
     return;
   }
 
-  const htmlElementOptions: InputBoxOptions = {
-    prompt: "Enter HTML Element (div is default)",
-    value: "div",
-    validateInput: validateHtmlElement,
-  };
-
-  const htmlElement = await window.showInputBox(htmlElementOptions);
-
-  /**
-   * If no HTML Element is given, we close the prompt
-   */
-  if (!htmlElement) {
-    return;
-  }
-
   try {
     switch (project) {
       case Projects.showwebgl:
-        await generateShowwebgl({ fsPath, component, htmlElement });
+        await generateShowwebgl({ fsPath, component });
         break;
       case Projects.uikit:
-        await generateUIkit({ fsPath, component, htmlElement });
+        await generateUIkit({ fsPath, component });
         break;
     }
   } catch (error) {

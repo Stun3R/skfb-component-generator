@@ -5,7 +5,7 @@ export enum Projects {
 
 export type TemplateParams = {
   component: string;
-  htmlElement: string;
+  htmlElement?: string;
 };
 
 export type TemplateType = {
@@ -17,5 +17,4 @@ export type TemplateType = {
 export type ProjectParams = {
   fsPath: string;
   component: string;
-  htmlElement: string;
 };

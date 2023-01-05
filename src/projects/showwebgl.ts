@@ -8,7 +8,6 @@ import { templates } from "../templates/showwebgl";
 export const generateShowwebgl = async ({
   fsPath,
   component,
-  htmlElement,
 }: ProjectParams) => {
   const path = join(fsPath, component);
 
@@ -23,7 +22,7 @@ export const generateShowwebgl = async ({
     const name =
       typeof fileName === "function" ? fileName(component) : fileName;
 
-    createFile(join(path, name), template({ component, htmlElement }));
+    createFile(join(path, name), template({ component }));
 
     if (!shouldOpen) {
       continue;

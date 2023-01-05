@@ -1,15 +1,33 @@
 import { join } from "path";
-import { workspace, window, TextDocumentShowOptions } from "vscode";
+import {
+  workspace,
+  window,
+  TextDocumentShowOptions,
+  InputBoxOptions,
+} from "vscode";
+
+import { templates } from "../templates/uikit";
 
 import { ProjectParams } from "../utils/types";
 import { createFile, createFolder } from "../utils/files";
-import { templates } from "../templates/uikit";
+import { validateHtmlElement } from "../utils/validators";
 
-export const generateUIkit = async ({
-  fsPath,
-  component,
-  htmlElement,
-}: ProjectParams) => {
+export const generateUIkit = async ({ fsPath, component }: ProjectParams) => {
+  const htmlElementOptions: InputBoxOptions = {
+    prompt: "Enter HTML Element (div is default)",
+    value: "div",
+    validateInput: validateHtmlElement,
+  };
+
+  let htmlElement = await window.showInputBox(htmlElementOptions);
+
+  /**
+   * If no HTML Element is given, we set default value
+   */
+  if (!htmlElement) {
+    htmlElement = "div";
+  }
+
   const path = join(fsPath, component);
 
   createFolder(path, component);

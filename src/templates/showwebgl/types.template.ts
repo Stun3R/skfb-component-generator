@@ -5,7 +5,10 @@ export const template = ({
 }: TemplateParams) => `import React from 'react';
 
 export type ${component}Props = {
-  children?: React.ReactNode;
+    /**
+     * Extends component style
+     */
+    className?: string;
 };
 `;
 
