@@ -3,9 +3,9 @@ import { workspace, window, TextDocumentShowOptions } from "vscode";
 
 import { ProjectParams } from "../utils/types";
 import { createFile, createFolder } from "../utils/files";
-import { templates } from "../templates/showwebgl";
+import { templates } from "../templates/uikit";
 
-export const generateShowwebgl = async ({
+export const generateUIkit = async ({
   fsPath,
   component,
   htmlElement,

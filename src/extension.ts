@@ -6,7 +6,7 @@ import {
   Uri,
   window,
 } from "vscode";
-import { generateShowwebgl } from "./projects";
+import { generateShowwebgl, generateUIkit } from "./projects";
 import { Projects } from "./utils/types";
 import { validateComponent, validateHtmlElement } from "./utils/validators";
 
@@ -72,7 +72,7 @@ export const generate = async ({ fsPath }: Uri) => {
         await generateShowwebgl({ fsPath, component, htmlElement });
         break;
       case Projects.uikit:
-        // buildUiKit
+        await generateUIkit({ fsPath, component, htmlElement });
         break;
     }
   } catch (error) {

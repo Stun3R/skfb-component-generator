@@ -9,7 +9,7 @@ export type TemplateParams = {
 };
 
 export type TemplateType = {
-  fileName: string;
+  fileName: string | ((component: string) => string);
   template: (params: TemplateParams) => string;
   shouldOpen: boolean;
 };
